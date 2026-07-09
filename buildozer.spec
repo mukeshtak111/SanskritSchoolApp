@@ -16,7 +16,7 @@ requirements = python3==3.11.5, hostpython3==3.11.5, kivy==2.3.0, requests, open
 # 4. BUILD BRANCH & RELEASE (Locking to stable past)
 p4a.branch = master
 p4a.release = 2024.1.21
-p4a.local_recipes = ./recipes
+p4a.local_recipes = recipes
 # 5. SCREEN & PERMISSIONS
 orientation = portrait
 fullscreen = 0
