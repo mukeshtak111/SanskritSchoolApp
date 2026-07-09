@@ -15,8 +15,7 @@ icon.filename = %(source.dir)s/icon.png
 
 # 4. REQUIREMENTS (The Compatibility Matrix Fix)
 # Locking Python to 3.11.5 and Kivy to 2.3.0 so ReportLab compiles perfectly
-requirements = python3==3.11.5, kivy==2.3.0, requests, openssl, reportlab
-
+requirements = python3==3.11.5, hostpython3==3.11.5, kivy==2.3.0, requests, openssl, reportlab
 # 5. BUILD BRANCH
 p4a.branch = develop
 
