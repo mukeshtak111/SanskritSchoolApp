@@ -7,6 +7,7 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 version = 1.0
 icon.filename = %(source.dir)s/icon.png
 requirements = python3, kivy==2.3.0, requests, openssl, reportlab
+p4a.branch = develop
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
