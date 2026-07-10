@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    timeout-minutes: 360
 
     steps:
     - name: Checkout Code
@@ -18,26 +19,32 @@ jobs:
       with:
         python-version: '3.11'
 
+    # --- यह नया मास्टरस्ट्रोक है जो Java 17 सेट करेगा ---
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    # ----------------------------------------------------
+
     - name: Install System Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential libltdl-dev libffi-dev libssl-dev python3-setuptools zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libopenblas-dev
+        sudo apt-get install -y build-essential libltdl-dev libffi-dev libssl-dev python3-setuptools zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libopenblas-dev ccache
 
     - name: Install Buildozer & Dependencies
       run: |
         pip install --upgrade pip
-        pip install buildozer cython virtualenv
-
-    - name: Install Buildozer & Dependencies
-      run: |
         pip install "pip<24.0"
         pip install "Cython<3.1"
         pip install buildozer virtualenv
 
     - name: Build APK with Buildozer
+      env:
+        USE_CCACHE: 1
       run: |
         rm -rf .buildozer
-        yes | buildozer -v android debug
+        buildozer -v android debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
