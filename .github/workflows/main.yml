@@ -30,8 +30,9 @@ jobs:
 
     - name: Install Buildozer & Dependencies
       run: |
-        pip install --upgrade pip
-        pip install buildozer cython virtualenv
+        pip install "pip<24.0"
+        pip install "Cython<3.1"
+        pip install buildozer virtualenv
 
     - name: Build APK with Buildozer
       run: |
