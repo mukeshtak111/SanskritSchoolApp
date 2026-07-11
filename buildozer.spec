@@ -9,10 +9,10 @@ package.domain = org.sanskrit
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,ttf
 version = 1.0
-# icon.filename = %(source.dir)s/icon.png
+icon.filename = %(source.dir)s/icon.png
 
 # 3. REQUIREMENTS (The ChatGPT Master Fix)
-requirements = python3==3.11.5, hostpython3==3.11.5, kivy==2.3.0, requests, openssl, reportlab
+requirements = python3==3.11.5, hostpython3==3.11.5, kivy==2.3.0, requests, openssl, reportlab, pillow
 # 4. BUILD BRANCH & RELEASE (Locking to stable past)
 p4a.branch = master
 p4a.local_recipes = recipes
